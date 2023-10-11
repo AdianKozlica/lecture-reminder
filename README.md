@@ -2,12 +2,11 @@
 
 A Python script that notifies when a lecture is beginning
 
-Example command:
+## How to setup
 
 ```cmd
-
-lecture-reminder.py lectures.json
-
+chmod +x lecture-reminder.py # Makes the python script executable
+sudo ln -s <directory-path>/lecture-reminder.py /usr/bin/lecture-reminder # Creates a symbolic link to lecture-reminder script
 ```
 
 JSON Example:
@@ -28,6 +27,15 @@ JSON Example:
     "Sat": {},
     "Sun": {}
 }
+
+```
+
+## Running
+Command:
+
+```cmd
+
+lecture-reminder.py example.json
 
 ```
 
