@@ -33,6 +33,7 @@ def main():
         json_dict = json.load(file)
 
     notify2.init("lecture-reminder")
+    prev_hours_minutes = None
 
     while True:
         time.sleep(1)
@@ -40,13 +41,12 @@ def main():
         day, hours_minutes = get_current_day_and_time()
         lecture = json_dict.get(day).get(hours_minutes)
 
-        if not lecture:
+        if not lecture or hours_minutes == prev_hours_minutes:
             continue
         
+        prev_hours_minutes = hours_minutes
         n = notify2.Notification("Lecture", f"Lecture {lecture} is beginning", ICON_PATH)
         n.show()
-
-        time.sleep(60)
 
 if __name__ == "__main__":
     main()
